@@ -31,9 +31,10 @@
             this.dragList = new System.Windows.Forms.ListBox();
             this.appLabel = new System.Windows.Forms.Label();
             this.dragLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.genButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.encButton = new System.Windows.Forms.Button();
+            this.decButton = new System.Windows.Forms.Button();
+            this.memeButton = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dragList
@@ -43,7 +44,7 @@
             this.dragList.ItemHeight = 16;
             this.dragList.Location = new System.Drawing.Point(47, 172);
             this.dragList.Name = "dragList";
-            this.dragList.Size = new System.Drawing.Size(420, 116);
+            this.dragList.Size = new System.Drawing.Size(641, 116);
             this.dragList.TabIndex = 0;
             this.dragList.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragList_DragDrop);
             this.dragList.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragList_DragEnter);
@@ -51,7 +52,7 @@
             // appLabel
             // 
             this.appLabel.Font = new System.Drawing.Font("Yu Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appLabel.Location = new System.Drawing.Point(12, 9);
+            this.appLabel.Location = new System.Drawing.Point(208, 9);
             this.appLabel.Name = "appLabel";
             this.appLabel.Size = new System.Drawing.Size(353, 113);
             this.appLabel.TabIndex = 1;
@@ -68,47 +69,66 @@
             this.dragLabel.Text = "Drag And Drop files here:";
             this.dragLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // encButton
             // 
-            this.textBox1.Location = new System.Drawing.Point(517, 172);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 116);
-            this.textBox1.TabIndex = 3;
+            this.encButton.Location = new System.Drawing.Point(47, 384);
+            this.encButton.Name = "encButton";
+            this.encButton.Size = new System.Drawing.Size(273, 66);
+            this.encButton.TabIndex = 5;
+            this.encButton.Text = "Encrypt files";
+            this.encButton.UseVisualStyleBackColor = true;
+            this.encButton.Click += new System.EventHandler(this.encButton_Click);
             // 
-            // genButton
+            // decButton
             // 
-            this.genButton.Location = new System.Drawing.Point(517, 105);
-            this.genButton.Name = "genButton";
-            this.genButton.Size = new System.Drawing.Size(257, 48);
-            this.genButton.TabIndex = 4;
-            this.genButton.Text = "Generate key";
-            this.genButton.UseVisualStyleBackColor = true;
+            this.decButton.Location = new System.Drawing.Point(415, 384);
+            this.decButton.Name = "decButton";
+            this.decButton.Size = new System.Drawing.Size(273, 66);
+            this.decButton.TabIndex = 6;
+            this.decButton.Text = "Decrypt files";
+            this.decButton.UseVisualStyleBackColor = true;
+            this.decButton.Click += new System.EventHandler(this.decButton_Click);
             // 
-            // button1
+            // memeButton
             // 
-            this.button1.Location = new System.Drawing.Point(47, 336);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(273, 66);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Generate key";
-            this.button1.UseVisualStyleBackColor = true;
+            this.memeButton.Font = new System.Drawing.Font("Yu Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memeButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.memeButton.Location = new System.Drawing.Point(-3, 471);
+            this.memeButton.Name = "memeButton";
+            this.memeButton.Size = new System.Drawing.Size(254, 33);
+            this.memeButton.TabIndex = 7;
+            this.memeButton.Text = "Easter egg";
+            this.memeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.memeButton.Click += new System.EventHandler(this.memeButton_Click);
+            this.memeButton.MouseEnter += new System.EventHandler(this.memeButton_MouseEnter);
+            this.memeButton.MouseLeave += new System.EventHandler(this.memeButton_MouseLeave);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(47, 305);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(641, 45);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "Clear the list";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.genButton);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(725, 513);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.memeButton);
+            this.Controls.Add(this.decButton);
+            this.Controls.Add(this.encButton);
             this.Controls.Add(this.dragLabel);
             this.Controls.Add(this.appLabel);
             this.Controls.Add(this.dragList);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -117,9 +137,10 @@
         private System.Windows.Forms.ListBox dragList;
         private System.Windows.Forms.Label appLabel;
         private System.Windows.Forms.Label dragLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button genButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button encButton;
+        private System.Windows.Forms.Button decButton;
+        private System.Windows.Forms.Label memeButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 
