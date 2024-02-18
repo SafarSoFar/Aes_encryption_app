@@ -64,6 +64,12 @@
     <Compile Include="GenKeyFrm.Designer.cs">
       <DependentUpon>GenKeyFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeyEnterFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyEnterFrm.Designer.cs">
+      <DependentUpon>KeyEnterFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenKeyFrm.resx">
       <DependentUpon>GenKeyFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyEnterFrm.resx">
+      <DependentUpon>KeyEnterFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

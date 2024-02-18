@@ -18,6 +18,7 @@ namespace AES__enc_GUI
     {
         public Aes aes;
         GenKeyFrm genKeyFrm;
+        KeyEnterFrm keyEnterFrm;
         public Form1()
         {
             InitializeComponent();
@@ -57,9 +58,26 @@ namespace AES__enc_GUI
 
         private void encButton_Click(object sender, EventArgs e)
         {
-            genKeyFrm = new GenKeyFrm(this);
-            genKeyFrm.Show();
+            if (CheckItemsCount())
+            {
+                genKeyFrm = new GenKeyFrm(this);
+                genKeyFrm.Show();
+
+            }
             
+        }
+
+        private bool CheckItemsCount()
+        {
+            if (dragList.Items.Count == 0)
+            {
+                MessageBox.Show("No files selected to encrypt", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public void EncryptFiles()
@@ -78,19 +96,30 @@ namespace AES__enc_GUI
             ClearList();
         }
 
-        private void decButton_Click(object sender, EventArgs e)
+
+        public void DecryptFiles()
         {
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
             int len = dragList.Items.Count;
-            for(int i = 0; i < len; i++) { 
+            for (int i = 0; i < len; i++)
+            {
                 string curPath = dragList.Items[i].ToString();
                 byte[] curCipherBytes = File.ReadAllBytes(curPath);
-                byte[] plainTextBytes = decryptor.TransformFinalBlock(curCipherBytes,0, curCipherBytes.Length);
+                byte[] plainTextBytes = decryptor.TransformFinalBlock(curCipherBytes, 0, curCipherBytes.Length);
                 string plainText = Encoding.UTF8.GetString(plainTextBytes);
                 File.WriteAllText(curPath, plainText);
             }
             MessageBox.Show("The files are decrypted");
             ClearList();
+        }
+
+        private void decButton_Click(object sender, EventArgs e)
+        {
+            if (CheckItemsCount())
+            {
+                keyEnterFrm = new KeyEnterFrm(this);
+                keyEnterFrm.Show();
+            }
         }
 
         private void memeButton_Click(object sender, EventArgs e)

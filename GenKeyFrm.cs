@@ -27,13 +27,18 @@ namespace AES__enc_GUI
             this.frm1.aes.GenerateIV();
             keyTextBox.Text = BitConverter.ToString(this.frm1.aes.Key);
         }
+        private void VIGenButton_Click(object sender, EventArgs e)
+        {
+            this.frm1.aes.GenerateIV();
+            VITextBox.Text = BitConverter.ToString(this.frm1.aes.IV);
+        }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            if(this.frm1.aes.Key == null)
+            if(keyTextBox.Text == "")
             {
-                MessageBox.Show("A key wasn't generated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("A key was not generated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
             }
             MessageBox.Show("Choose the location where to store the key");
             Stream myStream;
@@ -55,5 +60,6 @@ namespace AES__enc_GUI
                 this.Close();
             }
         }
+
     }
 }
