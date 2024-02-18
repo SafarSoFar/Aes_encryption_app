@@ -87,11 +87,31 @@ namespace AES__enc_GUI
             int len = dragList.Items.Count;
             for (int i = 0; i < len; i++)
             {
-                string curPath = dragList.Items[i].ToString();
+                string filePath = dragList.Items[i].ToString();
+                string encFilePath = filePath;
+                encFilePath = encFilePath.Substring(0, encFilePath.Length - 4);
+                /*for(int j = curPath.Length-1; j > 0; j--)
+                {
+                    if (curPath[j] == '.')
+                    {
+                        curPath.Remove(curPath[j]);
+                        break;
+                    }
+                    else
+                        curPath.Remove(curPath[j]);
+                }*/
+                encFilePath += "_encrypted.txt";
+                FileStream fs = File.Create(encFilePath);
+                if (!File.Exists(encFilePath))
+                {
+                    MessageBox.Show("Invalid file path", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                fs.Flush();
+                fs.Close();
                 // Not explicit UTF-8 Decoding call, can cause problems mb
-                byte[] plainText = File.ReadAllBytes(curPath);
+                byte[] plainText = File.ReadAllBytes(filePath);
                 byte[] cipher = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
-                File.WriteAllBytes(curPath, cipher);
+                File.WriteAllBytes(encFilePath, cipher);
             }
             MessageBox.Show("The files are encrypted");
             ClearList();
