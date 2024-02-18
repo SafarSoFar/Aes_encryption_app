@@ -82,6 +82,7 @@ namespace AES__enc_GUI
 
         public void EncryptFiles()
         {
+            genKeyFrm = null;
             ICryptoTransform encryptor = aes.CreateEncryptor();
             int len = dragList.Items.Count;
             for (int i = 0; i < len; i++)
@@ -97,9 +98,10 @@ namespace AES__enc_GUI
         }
 
 
-        public void DecryptFiles()
+        public void DecryptFiles(byte[] key, byte[] IV)
         {
-            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            keyEnterFrm = null;
+            ICryptoTransform decryptor = aes.CreateDecryptor(key, IV);
             int len = dragList.Items.Count;
             for (int i = 0; i < len; i++)
             {

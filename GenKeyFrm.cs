@@ -25,12 +25,12 @@ namespace AES__enc_GUI
         {
             this.frm1.aes.GenerateKey();
             this.frm1.aes.GenerateIV();
-            keyTextBox.Text = BitConverter.ToString(this.frm1.aes.Key);
+            keyTextBox.Text = Convert.ToBase64String(this.frm1.aes.Key);
         }
         private void VIGenButton_Click(object sender, EventArgs e)
         {
             this.frm1.aes.GenerateIV();
-            VITextBox.Text = BitConverter.ToString(this.frm1.aes.IV);
+            VITextBox.Text = Convert.ToBase64String(this.frm1.aes.IV);
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -41,7 +41,6 @@ namespace AES__enc_GUI
                 return; 
             }
             MessageBox.Show("Choose the location where to store the key");
-            Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -50,12 +49,24 @@ namespace AES__enc_GUI
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((myStream = saveFileDialog1.OpenFile()) != null)
-                {
+                //if ((myStream = saveFileDialog1.OpenFile()) != null)
+                //{
                     // Code to write the stream goes here.
-                    myStream.Write(frm1.aes.Key,0,frm1.aes.Key.Length);
-                    myStream.Close();
-                }
+                    string text = "*DO NOT OVERWRITE THE FILE!*\n";
+                    text += "Key->";
+                    text += keyTextBox.Text + "<-Key\n";
+                    text += "Initialization vector->";
+                    text += VITextBox.Text + "<-Initialization vector";
+                //byte[] text = Encoding.UTF8.GetBytes("DO NOT OVERWRITE THE FILE!\n Key: ");
+                //byte[] bytes = Encoding.UTF8.GetBytes(text);
+                //myStream.Write(frm1.aes.Key,0,frm1.aes.Key.Length);
+
+                //myStream.Close();
+                File.WriteAllText(saveFileDialog1.FileName, text);
+                /*var attr = File.GetAttributes(saveFileDialog1.FileName);
+                attr = attr | FileAttributes.ReadOnly;
+                File.SetAttributes(saveFileDialog1.FileName, attr);*/
+                //}
                 frm1.EncryptFiles();
                 this.Close();
             }

@@ -22,13 +22,16 @@ namespace AES__enc_GUI
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            if(keyTextBox.Text.Length == 0 )
+            if(keyTextBox.Text.Length == 0 || VITextBox.Text.Length == 0)
             {
-                MessageBox.Show("Please,enter the key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please, enter the key and the VI", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            frm1.aes.Key = Encoding.UTF8.GetBytes(keyTextBox.Text);
+            byte[] key = Convert.FromBase64String(keyTextBox.Text);
+            byte[] IV = Convert.FromBase64String(VITextBox.Text);
             //MessageBox.Show(", "Error", MessageBoxButtons.OK);
+            frm1.DecryptFiles(key,IV);
+            this.Close();
         }
 
         
