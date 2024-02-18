@@ -28,74 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.confirmButton = new System.Windows.Forms.Button();
-            this.dragLabel = new System.Windows.Forms.Label();
-            this.keyTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.VITextBox = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            confirmButton = new Button();
+            dragLabel = new Label();
+            keyTextBox = new TextBox();
+            label1 = new Label();
+            VITextBox = new TextBox();
+            SuspendLayout();
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(95, 357);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(257, 58);
-            this.confirmButton.TabIndex = 12;
-            this.confirmButton.Text = "Confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            confirmButton.Location = new Point(95, 359);
+            confirmButton.Margin = new Padding(3, 4, 3, 4);
+            confirmButton.Name = "confirmButton";
+            confirmButton.Size = new Size(257, 45);
+            confirmButton.TabIndex = 12;
+            confirmButton.Text = "Confirm";
+            confirmButton.UseVisualStyleBackColor = true;
+            confirmButton.Click += confirmButton_Click;
             // 
             // dragLabel
             // 
-            this.dragLabel.Font = new System.Drawing.Font("Yu Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dragLabel.Location = new System.Drawing.Point(98, 23);
-            this.dragLabel.Name = "dragLabel";
-            this.dragLabel.Size = new System.Drawing.Size(254, 42);
-            this.dragLabel.TabIndex = 11;
-            this.dragLabel.Text = "Enter the key";
-            this.dragLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            dragLabel.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dragLabel.Location = new Point(98, 29);
+            dragLabel.Name = "dragLabel";
+            dragLabel.Size = new Size(254, 52);
+            dragLabel.TabIndex = 11;
+            dragLabel.Text = "Enter the key";
+            dragLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // keyTextBox
             // 
-            this.keyTextBox.Location = new System.Drawing.Point(50, 103);
-            this.keyTextBox.Multiline = true;
-            this.keyTextBox.Name = "keyTextBox";
-            this.keyTextBox.Size = new System.Drawing.Size(349, 68);
-            this.keyTextBox.TabIndex = 9;
+            keyTextBox.Location = new Point(50, 85);
+            keyTextBox.Margin = new Padding(3, 4, 3, 4);
+            keyTextBox.Multiline = true;
+            keyTextBox.Name = "keyTextBox";
+            keyTextBox.Size = new Size(349, 84);
+            keyTextBox.TabIndex = 9;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Yu Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 189);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 42);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Enter the VI";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(95, 190);
+            label1.Name = "label1";
+            label1.Size = new Size(254, 52);
+            label1.TabIndex = 13;
+            label1.Text = "Enter the VI";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // VITextBox
             // 
-            this.VITextBox.Location = new System.Drawing.Point(50, 258);
-            this.VITextBox.Multiline = true;
-            this.VITextBox.Name = "VITextBox";
-            this.VITextBox.Size = new System.Drawing.Size(349, 68);
-            this.VITextBox.TabIndex = 14;
+            VITextBox.Location = new Point(50, 246);
+            VITextBox.Margin = new Padding(3, 4, 3, 4);
+            VITextBox.Multiline = true;
+            VITextBox.Name = "VITextBox";
+            VITextBox.Size = new Size(349, 84);
+            VITextBox.TabIndex = 14;
             // 
             // KeyEnterFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 459);
-            this.Controls.Add(this.VITextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.confirmButton);
-            this.Controls.Add(this.dragLabel);
-            this.Controls.Add(this.keyTextBox);
-            this.Name = "KeyEnterFrm";
-            this.Text = "KeyEnterFrm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(448, 429);
+            Controls.Add(VITextBox);
+            Controls.Add(label1);
+            Controls.Add(confirmButton);
+            Controls.Add(dragLabel);
+            Controls.Add(keyTextBox);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "KeyEnterFrm";
+            Text = "KeyEnterFrm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
