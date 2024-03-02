@@ -21,10 +21,9 @@ namespace AES__enc_GUI
             InitializeComponent();
         }
 
-        private void genButton_Click(object sender, EventArgs e)
+        private void genKeyButton_Click(object sender, EventArgs e)
         {
             this.frm1.aes.GenerateKey();
-            this.frm1.aes.GenerateIV();
             keyTextBox.Text = Convert.ToBase64String(this.frm1.aes.Key);
         }
         private void VIGenButton_Click(object sender, EventArgs e)
@@ -35,10 +34,10 @@ namespace AES__enc_GUI
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            if(keyTextBox.Text == "")
+            if (keyTextBox.Text == "")
             {
                 MessageBox.Show("A key was not generated!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; 
+                return;
             }
             MessageBox.Show("Choose the location where to store the key");
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -51,12 +50,12 @@ namespace AES__enc_GUI
             {
                 //if ((myStream = saveFileDialog1.OpenFile()) != null)
                 //{
-                    // Code to write the stream goes here.
-                    string text = "*DO NOT OVERWRITE THE FILE!*\n";
-                    text += "Key->";
-                    text += keyTextBox.Text + "<-Key\n";
-                    text += "Initialization vector->";
-                    text += VITextBox.Text + "<-Initialization vector";
+                // Code to write the stream goes here.
+                string text = "*DO NOT OVERWRITE THE FILE!*\n";
+                text += "Key->";
+                text += keyTextBox.Text + "<-Key\n";
+                text += "Initialization vector->";
+                text += VITextBox.Text + "<-Initialization vector";
                 //byte[] text = Encoding.UTF8.GetBytes("DO NOT OVERWRITE THE FILE!\n Key: ");
                 //byte[] bytes = Encoding.UTF8.GetBytes(text);
                 //myStream.Write(frm1.aes.Key,0,frm1.aes.Key.Length);
@@ -72,5 +71,6 @@ namespace AES__enc_GUI
             }
         }
 
+        
     }
 }

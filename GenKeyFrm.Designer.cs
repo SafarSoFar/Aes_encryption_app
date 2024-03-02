@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            genButton = new Button();
+            genKeyButton = new Button();
             keyTextBox = new TextBox();
             dragLabel = new Label();
             confirmButton = new Button();
@@ -36,20 +36,20 @@
             VIGenButton = new Button();
             SuspendLayout();
             // 
-            // genButton
+            // genKeyButton
             // 
-            genButton.Location = new Point(78, 205);
-            genButton.Margin = new Padding(3, 4, 3, 4);
-            genButton.Name = "genButton";
-            genButton.Size = new Size(266, 48);
-            genButton.TabIndex = 6;
-            genButton.Text = "Generate key";
-            genButton.UseVisualStyleBackColor = true;
-            genButton.Click += genButton_Click;
+            genKeyButton.Location = new Point(78, 183);
+            genKeyButton.Margin = new Padding(3, 4, 3, 4);
+            genKeyButton.Name = "genKeyButton";
+            genKeyButton.Size = new Size(266, 48);
+            genKeyButton.TabIndex = 6;
+            genKeyButton.Text = "Generate key";
+            genKeyButton.UseVisualStyleBackColor = true;
+            genKeyButton.Click += genKeyButton_Click;
             // 
             // keyTextBox
             // 
-            keyTextBox.Location = new Point(33, 102);
+            keyTextBox.Location = new Point(33, 91);
             keyTextBox.Margin = new Padding(3, 4, 3, 4);
             keyTextBox.Multiline = true;
             keyTextBox.Name = "keyTextBox";
@@ -59,19 +59,19 @@
             // dragLabel
             // 
             dragLabel.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dragLabel.Location = new Point(90, 28);
+            dragLabel.Location = new Point(78, 25);
             dragLabel.Name = "dragLabel";
-            dragLabel.Size = new Size(254, 52);
+            dragLabel.Size = new Size(266, 62);
             dragLabel.TabIndex = 7;
             dragLabel.Text = "Key generation";
             dragLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // confirmButton
             // 
-            confirmButton.Location = new Point(78, 449);
+            confirmButton.Location = new Point(78, 431);
             confirmButton.Margin = new Padding(3, 4, 3, 4);
             confirmButton.Name = "confirmButton";
-            confirmButton.Size = new Size(266, 38);
+            confirmButton.Size = new Size(266, 70);
             confirmButton.TabIndex = 8;
             confirmButton.Text = "Confirm";
             confirmButton.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             // VITextBox
             // 
-            VITextBox.Location = new Point(33, 278);
+            VITextBox.Location = new Point(33, 256);
             VITextBox.Margin = new Padding(3, 4, 3, 4);
             VITextBox.Multiline = true;
             VITextBox.Name = "VITextBox";
@@ -88,13 +88,12 @@
             // 
             // VIGenButton
             // 
-            VIGenButton.Location = new Point(78, 380);
+            VIGenButton.Location = new Point(78, 358);
             VIGenButton.Margin = new Padding(3, 4, 3, 4);
             VIGenButton.Name = "VIGenButton";
             VIGenButton.Size = new Size(266, 48);
             VIGenButton.TabIndex = 10;
-            VIGenButton.Text = "Generate initialization vector";
-            VIGenButton.UseVisualStyleBackColor = true;
+            VIGenButton.Text = "Generate vector";
             VIGenButton.Click += VIGenButton_Click;
             // 
             // GenKeyFrm
@@ -106,7 +105,7 @@
             Controls.Add(VITextBox);
             Controls.Add(confirmButton);
             Controls.Add(dragLabel);
-            Controls.Add(genButton);
+            Controls.Add(genKeyButton);
             Controls.Add(keyTextBox);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -119,11 +118,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button genButton;
+        private System.Windows.Forms.Button genKeyButton;
         private System.Windows.Forms.TextBox keyTextBox;
         private System.Windows.Forms.Label dragLabel;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.TextBox VITextBox;
-        private System.Windows.Forms.Button VIGenButton;
+        private Button VIGenButton;
     }
 }
